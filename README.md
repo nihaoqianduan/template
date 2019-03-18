@@ -23,3 +23,6 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 # template
 内置 vue-cli、vue-router、axios、less、less-loader，实际开发不够用，自行添加
+
+```
+如有使用，自行安装 oreo-ui (http://192.168.3.63:3000/Mobile_Internet_Web/oreo-ui.git)
