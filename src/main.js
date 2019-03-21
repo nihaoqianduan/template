@@ -6,12 +6,15 @@ import App from './App'
 import router from './router'
 
 import oreoVue from 'oreo-ui/components/index';
+import http from '@/service/http';
 
 import '@/filters'
 
 Vue.config.productionTip = false;
 
 Vue.use(oreoVue);
+
+Vue.prototype.$http = http;
 
 /* eslint-disable no-new */
 new Vue({
