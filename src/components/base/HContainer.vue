@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  name: 'container'
+  name: 'h-container'
 }
 </script>
 <style lang="less" scoped>
