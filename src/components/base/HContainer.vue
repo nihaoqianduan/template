@@ -4,8 +4,9 @@
   </div>
 </template>
 <script>
+import createBasic from 'oreo-ui/components/utils/create-basic';
 export default {
-  name: 'container'
+  name: 'h-container'
 }
 </script>
 <style lang="less" scoped>

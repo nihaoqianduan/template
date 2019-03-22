@@ -10,9 +10,12 @@ import http from '@/service/http';
 
 import '@/filters'
 
+import BaseComponent from '@/components/base';
+
 Vue.config.productionTip = false;
 
 Vue.use(oreoVue);
+// Vue.use(BaseComponent);
 
 Vue.prototype.$http = http;
 
