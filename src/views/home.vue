@@ -13,10 +13,10 @@
   </h-container>
 </template>
 <script>
-import { HContainer, HForm } from '@/components/base';
+// import { HContainer, HForm } from '@/components/base';
 export default {
   name: 'home',
-  components: { HContainer, HForm },
+  // components: { HContainer, HForm },
   data() {
     return {
       model: {
