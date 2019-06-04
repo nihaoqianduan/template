@@ -37,24 +37,36 @@ export default {
       callback(valida)
     },
     _valid(key, val) {
-      return new Promise((resovle, reject) => {
-        let valida = false;
+      return new Promise(async (resovle, reject) => {
+        let valida = true;
         for (let index = 0; index < val.length; index++) {
           const v = val[index];
-          if (!!v.required && (this.model[key] === '' || this.model[key] === void (0))) {
-            this.$toast(v.message)
-            valida = false;
-            break;
-          } else if (!!v.regExg && this.model[key] !== '' && !v.regExg.test(this.model[key])) {
-            this.$toast(v.message);
-            valida = false;
-            break;
-          } else {
-            valida = true;
+          if (!!v.required) {
+            valida = await this._required(key, v);
+            if (!valida) break;
+          }
+          if (!!v.regExg) {
+            valida = await this._regExg(key, v);
+            if (!valida) break;
           }
         }
         resovle(valida)
       })
+    },
+    async _required(key, v) {
+      if (this.model[key] === null || this.model[key] === void (0) || this.model[key].toString().trim() === '') {
+        this.$toast(v.message)
+        return false;
+      }
+      return true;
+    },
+    async _regExg(key, v) {
+      if (this.model[key] === null || this.model[key] === void (0)) return true;
+      if (this.model[key].toString().trim() !== '' && !v.regExg.test(this.model[key].toString().trim())) {
+        this.$toast(v.message);
+        return false;
+      }
+      return true;
     }
   }
 }
