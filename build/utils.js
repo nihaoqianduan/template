@@ -99,3 +99,49 @@ exports.createNotifierCallback = () => {
     })
   }
 }
+
+const glob = require('glob')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const PAGE_PATH = path.resolve(__dirname, '../src/pages')
+const merge = require('webpack-merge')
+
+// 多页面入口
+exports.entries = function () {
+  var entryFiles = glob.sync(PAGE_PATH + '/*/index.js')
+  var map = {}
+  entryFiles.forEach((filePath) => {
+    var arry = filePath.split('/')
+    var filename = arry[arry.length - 2]
+    map[filename] = filePath
+  })
+  return map
+}
+
+// 多页面输出
+exports.htmlPlugin = function () {
+  var htmls = glob.sync(PAGE_PATH + '/*/*.html')
+  var output = []
+  htmls.forEach((filePath) => {
+    var arry = filePath.split('/')
+    var filename = arry[arry.length - 2]
+    var htmls = []
+    var confg = {
+      template: filePath,
+      filename: filename + '.html',
+      chunks: ['manifest', 'vendor', filename],
+      inject: true
+    }
+    if (process.env.NODE_ENV === 'production') {
+      confg = merge(confg, {
+        minify: {
+          removeComments: true,
+          collapseWhitespace: true
+          // removeAttributeQuotes: true
+        },
+        chunksSortMode: 'dependency'
+      })
+    }
+    output.push(new HtmlWebpackPlugin(confg))
+  })
+  return output
+}
