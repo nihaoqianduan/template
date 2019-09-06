@@ -30,7 +30,7 @@ exports.cssLoaders = function (options) {
   }
 
   // generate loader string to be used with extract text plugin
-  function generateLoaders(loader, loaderOptions) {
+  function generateLoaders (loader, loaderOptions) {
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
 
     if (loader) {
@@ -105,6 +105,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const PAGE_PATH = path.resolve(__dirname, '../src/pages')
 const merge = require('webpack-merge')
 
+const debug = process.env.NODE_ENV === 'production'
+
 // 多页面入口
 exports.entries = function () {
   var entryFiles = glob.sync(PAGE_PATH + '/*/index.js')
@@ -112,7 +114,13 @@ exports.entries = function () {
   entryFiles.forEach((filePath) => {
     var arry = filePath.split('/')
     var filename = arry[arry.length - 2]
-    map[filename] = filePath
+    if (debug) {
+      if (filename !== 'example' && filename !== 'test') {
+        map[filename] = filePath
+      }
+    } else {
+      map[filename] = filePath
+    }
   })
   return map
 }
@@ -131,7 +139,7 @@ exports.htmlPlugin = function () {
       chunks: ['manifest', 'vendor', filename],
       inject: true
     }
-    if (process.env.NODE_ENV === 'production') {
+    if (debug) {
       confg = merge(confg, {
         minify: {
           removeComments: true,
@@ -140,8 +148,12 @@ exports.htmlPlugin = function () {
         },
         chunksSortMode: 'dependency'
       })
+      if (filename !== 'example' && filename !== 'test') {
+        output.push(new HtmlWebpackPlugin(confg))
+      }
+    } else {
+      output.push(new HtmlWebpackPlugin(confg))
     }
-    output.push(new HtmlWebpackPlugin(confg))
   })
   return output
 }
