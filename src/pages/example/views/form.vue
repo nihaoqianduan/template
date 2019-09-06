@@ -1,23 +1,19 @@
 <template>
-  <h-container class="home">
-    <h-form :model="model" :rules="rules" ref="myForm">
-      <oreo-cell-group>
-        <oreo-input label="用户名" placeholder="真实姓名" v-model="model.name"></oreo-input>
-        <oreo-input label="年龄" placeholder="真实年龄" v-model="model.age"></oreo-input>
-        <oreo-input label="性别" placeholder="真实性别" v-model="model.sex"></oreo-input>
-        <oreo-input label="手机号" placeholder="真实手机号" v-model="model.mobile"></oreo-input>
-        <oreo-input label="邮箱" placeholder="真实邮箱" v-model="model.email"></oreo-input>
-        <oreo-button @click="handleOnSubmit">提交</oreo-button>
-      </oreo-cell-group>
-    </h-form>
-  </h-container>
+  <h-form :model="model" :rules="rules" ref="myForm">
+    <oreo-cell-group>
+      <oreo-input label="用户名" placeholder="真实姓名" v-model="model.name"></oreo-input>
+      <oreo-input label="年龄" placeholder="真实年龄" v-model="model.age"></oreo-input>
+      <oreo-input label="性别" placeholder="真实性别" v-model="model.sex"></oreo-input>
+      <oreo-input label="手机号" placeholder="真实手机号" v-model="model.mobile"></oreo-input>
+      <oreo-input label="邮箱" placeholder="真实邮箱" v-model="model.email"></oreo-input>
+      <oreo-button @click="handleOnSubmit">提交</oreo-button>
+    </oreo-cell-group>
+  </h-form>
 </template>
 <script>
-// import { HContainer, HForm } from '@/components/base';
 export default {
-  name: 'home',
-  // components: { HContainer, HForm },
-  data() {
+  name: 'e-form',
+  data () {
     return {
       model: {
         name: '',
@@ -48,7 +44,7 @@ export default {
     }
   },
   methods: {
-    handleOnSubmit() {
+    handleOnSubmit () {
       this.$refs.myForm.validate((res) => {
         console.log(res)
       })
@@ -56,8 +52,5 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
-.home {
-  font-size: 0.32rem;
-}
+<style lang="less">
 </style>

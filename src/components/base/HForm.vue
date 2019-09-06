@@ -4,19 +4,21 @@
   </div>
 </template>
 <script>
-import { isEmpty } from '@/utils';
+import { isEmpty, verifySpace } from '@/utils';
 export default {
   name: 'h-form',
   props: {
     model: {
-      type: Object
+      type: Object,
+      required: true
     },
     rules: {
-      Object
+      Object,
+      required: true
     }
   },
   methods: {
-    async validate(callback) {
+    async validate (callback) {
       if (!this.model || isEmpty(this.model)) {
         console.warn('model不能传递空');
         return;
@@ -36,7 +38,7 @@ export default {
       }
       callback(valida)
     },
-    _valid(key, val) {
+    _valid (key, val) {
       return new Promise(async (resovle, reject) => {
         let valida = true;
         for (let index = 0; index < val.length; index++) {
@@ -53,16 +55,16 @@ export default {
         resovle(valida)
       })
     },
-    async _required(key, v) {
-      if (this.model[key] === null || this.model[key] === void (0) || this.model[key].toString().trim() === '') {
+    async _required (key, v) {
+      if (!verifySpace(this.model[key])) {
         this.$toast(v.message)
         return false;
       }
       return true;
     },
-    async _regExg(key, v) {
+    async _regExg (key, v) {
       if (this.model[key] === null || this.model[key] === void (0)) return true;
-      if (this.model[key].toString().trim() !== '' && !v.regExg.test(this.model[key].toString().trim())) {
+      if (verifySpace(this.model[key]) && !v.regExg.test(this.model[key].toString().trim())) {
         this.$toast(v.message);
         return false;
       }
