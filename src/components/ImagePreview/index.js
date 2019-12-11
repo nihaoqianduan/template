@@ -15,7 +15,7 @@ function initInstance (images) {
 
 class ImagePreview extends initInstance {
   constructor(imgs) {
-    super();
+    super(imgs);
     if (!imgs) {
       console.error('入参不能为空')
       return;

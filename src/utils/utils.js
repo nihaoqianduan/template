@@ -11,3 +11,7 @@ export function dataType (value) {
 export function isArray (value) {
   return dataType(value).slice(8, -1) === "Array";
 }
+
+export function isObject(value){
+  return dataType(value).slice(8, -1) === "Object";
+}

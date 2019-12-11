@@ -11,8 +11,10 @@
   >
     <div class="preview-content" @click.self="close">
       <swiper :options="swiperOption" ref="mySwiper" style="width:100%">
-        <swiper-slide class="wrapper" v-for="(item, index) in images" :key="index">
-          <img class="preview-img" :src="item" alt />
+        <swiper-slide class="wrapper" v-for="(item, index) in test" :key="index">
+          <img class="preview-img" :src="item.url" alt />
+          <p class="title" v-if="!!item.title" >{{item.title}}</p>
+          <p class="desc" v-if="!!item.desc" >{{item.desc}}</p>
         </swiper-slide>
       </swiper>
       <div class="pagination">{{count}}/{{sum}}</div>
@@ -20,12 +22,13 @@
   </oreo-popup>
 </template>
 <script>
-import 'swiper/dist/css/swiper.css';
-import { swiper, swiperSlide } from 'vue-awesome-swiper';
+import "swiper/dist/css/swiper.css";
+import { swiper, swiperSlide } from "vue-awesome-swiper";
+import { isObject } from "@/utils";
 export default {
-  name: 'pic-preview',
+  name: "pic-preview",
   components: { swiper, swiperSlide },
-  data () {
+  data() {
     return {
       fullscreen: true,
       images: [],
@@ -43,31 +46,40 @@ export default {
         }
       },
       visible: false
-    }
+    };
   },
   computed: {
-    sum () {
+    sum() {
       return this.images.length;
+    },
+    test() {
+      let list = this.images.map(val => {
+        if (isObject(val)) return val;
+        return {
+          url: val
+        };
+      });
+      return list;
     }
   },
   methods: {
-    handleOverlay () {
+    handleOverlay() {
       this.close();
     },
-    close () {
+    close() {
       this.visible = false;
     },
-    show (index = -1) {
+    show(index = -1) {
       if (index < 0) {
-        console.error('入参格式错误，请检查入参');
+        console.error("入参格式错误，请检查入参");
         return;
       }
-      this.$refs.mySwiper.swiper.slideTo(index)
+      this.$refs.mySwiper.swiper.slideTo(index);
       this.visible = true;
       this.count = index + 1;
     }
   }
-}
+};
 </script>
 <style lang="less" scoped>
 .pic-preview {
@@ -83,10 +95,19 @@ export default {
   }
   .wrapper {
     width: 100%;
-    height: 5.13rem;
+    // height: 5.13rem;
+    height: 100%;
+    font-size: 0.3rem;
     .preview-img {
       width: 100%;
-      height: 100%;
+      // height: 100%;
+      height: 6rem;
+    }
+    .title {
+      padding: 0.3rem 0.3rem 0;
+    }
+    .desc {
+      padding: 0rem 0.3rem 0;
     }
   }
   .pagination {
