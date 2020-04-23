@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
 import http from "axios";
 import qs from "qs";
 
@@ -22,9 +24,7 @@ http.interceptors.request.use(
 );
 
 http.interceptors.response.use(
-  res => {
-    return res;
-  },
+  res => res,
   error => {
     console.log(error);
     return Promise.reject(error);
@@ -48,11 +48,13 @@ function getCookie(key) {
   }
   result = parse(str);
 
-  function parse(str) {
+  function parse(s) {
     let obj = {};
-    let pairs = str.split(/ *; */);
+    let pairs = s.split(/ *; */);
     let pair;
-    if (pairs[0] === "") return obj;
+    if (pairs[0] === "") {
+      return obj;
+    }
     for (let i = 0; i < pairs.length; ++i) {
       pair = pairs[i].split("=");
       obj[decode(pair[0])] = decode(pair[1]);
@@ -68,11 +70,8 @@ function getCookie(key) {
     }
   }
 
-  if (key) {
-    return result[key] || "";
-  } else {
-    return result;
-  }
+  if (key) return result[key] || "";
+  return result;
 }
 
 export default http;

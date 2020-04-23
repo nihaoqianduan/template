@@ -1,9 +1,7 @@
-import Vue from 'vue';
+import Vue from "vue";
 
-const filters = {
+const filters = {};
 
-}
-
-Object.keys(filters).forEach((key) => {
-    Vue.filter(key, filters[key])
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key]);
 });

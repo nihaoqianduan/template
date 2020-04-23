@@ -8,7 +8,7 @@ import http from "@/service/http";
 
 import "@/filters";
 
-import BaseComponent from "@/components/base";
+import "@/components/base";
 import { Toast } from "vant";
 
 Vue.config.productionTip = false;

@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
 import http from "./base";
 import Vue from "vue";
 
@@ -7,16 +10,11 @@ const api = {};
 
 const methods = {};
 
-Object.keys(api).map((key, index) => {
-  methods[key] = param => {
-    return response(
-      (p => {
-        return http.post(api[key], p);
-      })(param)
-    )
+Object.keys(api).forEach((key, index) => {
+  methods[key] = param =>
+    response((p => http.post(api[key], p))(param))
       .then(res => [null, res])
       .catch(err => [err, null]);
-  };
 });
 
 function response(promise) {
@@ -25,7 +23,7 @@ function response(promise) {
       .then(res => {
         if (
           res.status === 200 &&
-          (res.data.returncode == "100" || res.data.code === "SUCCESS")
+          (res.data.returncode === "100" || res.data.code === "SUCCESS")
         ) {
           resovle(res.data);
         } else if (res.data.returncode === "ERROR") {
