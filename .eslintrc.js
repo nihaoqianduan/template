@@ -13,7 +13,8 @@ module.exports = {
   },
   // 别人可以直接使用你配置好的ESLint
   root: true,
-  plugins: ["vue"],
+  plugins: ["vue", "html"],
+  extends: ["plugin:vue/base"],
   // 启用的规则及其各自的错误级别
   // 每个规则对应的0,1,2分别表示off,warning,error三个错误级别
   rules: {

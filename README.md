@@ -30,3 +30,5 @@ webpack 配置已配制好，打包后自动引入对应 js 文件
 
 - development.js 开发环境配置文件
 - production.js 生产环境配置文件
+
+### 增加eslint
