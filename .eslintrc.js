@@ -9,7 +9,8 @@ module.exports = {
   // 指定脚本的运行环境
   env: {
     browser: true,
-    es6: true
+    es6: true,
+    node: true
   },
   // 别人可以直接使用你配置好的ESLint
   root: true,
