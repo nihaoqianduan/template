@@ -4,7 +4,7 @@
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 npm install
 
@@ -20,9 +20,15 @@ npm run build --report
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-
 # template
+
 内置 vue-cli、vue-router、axios、less、less-loader，实际开发不够用，自行添加
 
-```
-如有使用，自行安装 oreo-ui (http://192.168.3.63:3000/Mobile_Internet_Web/oreo-ui.git)
+### 增加 static/config 文件夹
+
+webpack 配置已配制好，打包后自动引入对应 js 文件
+
+- development.js 开发环境配置文件
+- production.js 生产环境配置文件
+
+### 增加eslint

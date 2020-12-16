@@ -4,36 +4,60 @@
       class="test-image"
       v-for="(item, index) in imgs"
       :key="index"
-      :src="item"
+      :src="item.url"
       alt
       @click="handleOnClick(index)"
     />
   </h-container>
 </template>
 <script>
-import ImagePreview from '@/components/ImagePreview';
+import ImagePreview from "@/components/ImagePreview";
 export default {
-  name: 'e-image-preview',
-  data () {
+  name: "e-image-preview",
+  data() {
     return {
       imgs: [
-        'http://image4.xyzs.com/upload/f2/fc/324/20150505/143075817383039_0.jpg',
-        'http://img3.imgtn.bdimg.com/it/u=239142441,4069198012&fm=26&gp=0.jpg',
-        'http://img.pconline.com.cn/images/upload/upc/tx/photoblog/1411/20/c4/82016_82016_1416494431000.jpg',
-        'http://cz.xcabc.com/Img/20141023144508.jpg',
-        'http://res.img.ifeng.com/2012/0813/wm_dc81ba65f7283add4bf3bd6e88fba20c.jpg'
+        {
+          url:
+            "http://image4.xyzs.com/upload/f2/fc/324/20150505/143075817383039_0.jpg",
+          title: "我是标题",
+          desc: "哈哈哈哈哈哈哈哈哈哈"
+        },
+        {
+          url:
+            "http://img3.imgtn.bdimg.com/it/u=239142441,4069198012&fm=26&gp=0.jpg",
+          title: "我是标题",
+          desc: "啦啦啦啦啦啦啦啦啦啦啦"
+        },
+        {
+          url:
+            "http://img.pconline.com.cn/images/upload/upc/tx/photoblog/1411/20/c4/82016_82016_1416494431000.jpg",
+          title: "我是标题",
+          desc: "咿呀咿呀哟嘤嘤嘤"
+        },
+        {
+          url: "http://cz.xcabc.com/Img/20141023144508.jpg",
+          title: "我是标题",
+          desc: "哈哈哈哈哈哈哈"
+        },
+        {
+          url:
+            "http://res.img.ifeng.com/2012/0813/wm_dc81ba65f7283add4bf3bd6e88fba20c.jpg",
+          title: "我是标题",
+          desc: "1345678945678946"
+        }
       ]
-    }
+    };
   },
-  created () {
+  created() {
     this.imagePreview = new ImagePreview(this.imgs);
   },
   methods: {
-    handleOnClick (index) {
-      this.imagePreview.show(index)
+    handleOnClick(index) {
+      this.imagePreview.show(index);
     }
   }
-}
+};
 </script>
 <style lang="less">
 .main {
