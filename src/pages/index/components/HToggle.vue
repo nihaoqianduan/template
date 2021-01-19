@@ -67,6 +67,7 @@ export default {
         left: 50%;
         bottom: -0.08rem;
         transform: translateX(-50%) rotate(45deg);
+        z-index: -2px;
       }
     }
   }

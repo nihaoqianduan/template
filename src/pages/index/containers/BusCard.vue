@@ -8,16 +8,17 @@
       >
         <div class="title" @click="handleOnClickDetails(item, index)">
           <span>{{ item.lineName }}</span>
-          <!-- <span>线路起点</span>
-          <img :src="dx" class="icon-dx" alt="" />
-          <span>线路终点</span> -->
         </div>
-        <div class="footer">
+        <div class="footer" @click="handleOnClickDetails(item, index)">
           <div class="left">
-            <div class="left-tag">{{ item.schedulerName }}</div>
+            <div class="left-tag">
+              {{ item.schedulerName }}
+            </div>
             <div>{{ item.startTime }}发车</div>
           </div>
-          <div class="right">{{ item.busNumber }}</div>
+          <div class="right">
+            {{ item.busNumber }}
+          </div>
         </div>
       </swiper-slide>
     </swiper>
@@ -114,7 +115,6 @@ export default {
     const self = this;
     return {
       bg: require("@/assets/images/bg.png"),
-      dx: require("@/assets/images/daoxiang.png"),
       address: require("@/assets/images/address.png"),
       teacher: require("@/assets/images/teacher.png"),
       siji: require("@/assets/images/siji.png"),
@@ -151,7 +151,6 @@ export default {
         for (let i = 0; i < this.scheduling.length; i++) {
           const item = this.scheduling[i];
           if (item.schedulerId == id) {
-            console.log(item);
             obj = item;
           }
         }
@@ -167,6 +166,7 @@ export default {
   },
   methods: {
     async handleOnClickDetails(item, index) {
+      console.log("66666");
       const [err, res] = await this.$http.schedulerList({
         date: dayjs().format("YYYYMMDD"),
       });
@@ -184,13 +184,13 @@ export default {
 <style lang="less" scoped >
 .bus-swiper-slide {
   width: 100%;
-  // width: 6.66rem;
   height: 2.4rem;
   background: linear-gradient(90deg, #3377ff 0%, #59a1ff 100%);
   border-radius: 0.24rem 0.24rem 0px 0px;
   color: #ffffff;
   padding: 0.36rem 0.32rem;
   box-sizing: border-box;
+  position: relative;
 
   & > .title {
     margin-bottom: 0.2rem;
@@ -209,6 +209,10 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    // position: absolute;
+    // left: 0.32rem;
+    // right: 0.32rem;
+    // z-index: 999;
     .left {
       display: flex;
       align-items: center;
@@ -242,10 +246,12 @@ export default {
     width: 100%;
     position: absolute;
     left: 0;
-    bottom: -1px;
+    // bottom: -1px;
+    bottom: -0.14rem;
     right: 0;
     // z-index: 99;
     z-index: 1;
+    // z-index: -1;
   }
 }
 .bus-popup {
