@@ -4,16 +4,16 @@ import VueI18n from "vue-i18n";
 import zh from "./zh";
 import en from "./en";
 
+import { search } from "@/utils";
+
 Vue.use(VueI18n);
 
-// const wjdc_lang = window.localStorage.getItem("wjdc_lang");
+const language = search("language") || "zh";
 
-// let lang = wjdc_lang || "zh";
-
-let lang = "zh";
+// let language = "zh";
 
 const i18n = new VueI18n({
-  locale: lang,
+  locale: language,
   messages: {
     zh,
     en

@@ -27,6 +27,10 @@ const zh = {
   button: "确定",
   placeholder1: "乘车站点",
   placeholder2: "乘车类型",
-  placeholder3: "乘车班次"
+  placeholder3: "乘车班次",
+  tag: "发车",
+  tag2: "车次信息",
+  tag3: "学生信息",
+  tag4: "没有更多了"
 };
 export default zh;

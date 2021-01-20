@@ -17,7 +17,7 @@
     ></component>
     <h-popup v-model="show">
       <div class="inofo-popup">
-        <div class="title">学生信息</div>
+        <div class="title">{{ $t("tag3") }}</div>
         <div class="info">
           <!-- <div class="avatar"></div> -->
           <img :src="avatar" alt="" class="avatar" />
@@ -52,7 +52,7 @@
             :key="index"
           >
             <span>{{ item.parentName }} · {{ item.parentPhone }}</span>
-            <a href="tel:13828172679">
+            <a :href="'tel:' + item.parentPhone">
               <img class="icon-phone" :src="phone" alt="" />
             </a>
           </div>
@@ -67,7 +67,7 @@
               >{{ childDetail.teacherName }} ·
               {{ childDetail.teacherPhone }}</span
             >
-            <a href="tel:13828172679">
+            <a :href="'tel:' + childDetail.teacherPhone">
               <img class="icon-phone" :src="phone" alt="" />
             </a>
           </div>

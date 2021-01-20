@@ -4,7 +4,7 @@
     <van-list
       v-model="loading"
       :finished="finished"
-      finished-text="没有更多了"
+      :finished-text="$t('tag4')"
       @load="onLoad"
     >
       <div class="zdy-steps">
@@ -34,7 +34,7 @@
                 <div class="left">
                   <div class="step-date">
                     <div class="step-date-tag">{{ opt.schedulerName }}</div>
-                    <span>{{ opt.startTime }} 发车</span>
+                    <span>{{ opt.startTime }} {{$t('tag')}}</span>
                   </div>
                   <div class="step-teacher">
                     <img :src="teacher" class="icon-teacher" alt="" />

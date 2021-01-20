@@ -1,7 +1,7 @@
 <template>
   <h-container class="history-details" v-if="loading">
     <div class="header">
-      <div class="title">校车查询</div>
+      <div class="title">{{$t('title')}}</div>
       <div class="desc">{{ busData.date }} {{ busData.week }}</div>
       <img
         :src="busData.avatar | formatDetaultAvatar"
@@ -18,7 +18,7 @@
         <div class="footer">
           <div class="left">
             <div class="left-tag">{{ busData.schedulerName }}</div>
-            <div>{{ busData.startTime }}发车</div>
+            <div>{{ busData.startTime }}{{$t('tag')}}</div>
           </div>
           <div class="right">{{ busData.busNumber }}</div>
         </div>

@@ -14,7 +14,7 @@
             <div class="left-tag">
               {{ item.schedulerName }}
             </div>
-            <div>{{ item.startTime }}发车</div>
+            <div>{{ item.startTime }} {{$t('tag')}}</div>
           </div>
           <div class="right">
             {{ item.busNumber }}
@@ -25,7 +25,7 @@
     <img :src="bg" class="bg" alt="" />
     <h-popup v-model="show">
       <div class="bus-popup">
-        <div class="header">车次信息</div>
+        <div class="header">{{$t('tag2')}}</div>
         <swiper
           ref="mySwiper2"
           :options="swiperOptions2"
@@ -42,7 +42,7 @@
               @click="info = index"
             >
               <div class="info-title">{{ item.schedulerName }}</div>
-              <div class="info-value">{{ item.startTime }}发车</div>
+              <div class="info-value">{{ item.startTime }}{{$t('tag')}}</div>
             </div>
           </swiper-slide>
         </swiper>

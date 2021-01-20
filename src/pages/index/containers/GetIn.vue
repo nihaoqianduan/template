@@ -14,7 +14,7 @@
     ></component>
     <h-popup v-model="show">
       <div class="inofo-popup">
-        <div class="title">学生信息</div>
+        <div class="title">{{$t('tag3')}}</div>
         <div class="info">
           <!-- <div class="avatar"></div> -->
           <img :src="avatar" alt="" class="avatar" />
