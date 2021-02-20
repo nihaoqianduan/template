@@ -27,7 +27,7 @@ export default {
     },
     show(index = 0) {
       if (index < 0) {
-        console.error("入参格式错误，请检查入参");
+        // console.error("入参格式错误，请检查入参");
         return;
       }
       // console.log(index);

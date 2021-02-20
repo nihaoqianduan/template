@@ -53,8 +53,7 @@ module.exports = {
         enforce: "pre",
         include: [resolve("src"), resolve("test")],
         options: {
-          formatter: require("eslint-friendly-formatter"),
-          emitWarning: !config.dev.showEslintErrorsInOverlay
+          formatter: require("eslint-friendly-formatter")
         }
       },
       {

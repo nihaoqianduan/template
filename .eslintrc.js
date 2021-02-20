@@ -96,9 +96,9 @@ module.exports = {
     // 对象的最后一项后面是否写逗号
     "comma-dangle": 2,
     // 逗号前后是否有空格
-    "comma-spacing": 1,
+    "comma-spacing": 2,
     // 逗号写在行首还是行尾
-    "comma-style": 0,
+    "comma-style": 2,
     // 禁止函数 if ... else if ... else 的复杂度超过 20
     complexity: 2,
     // this 的别名规则，只允许 self 或 that

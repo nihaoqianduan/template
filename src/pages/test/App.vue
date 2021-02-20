@@ -1,14 +1,13 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <oreo-button>Button</oreo-button>
+    <img src="../../assets/logo.png" alt="" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
-}
+  name: "App"
+};
 </script>
 
 <style>

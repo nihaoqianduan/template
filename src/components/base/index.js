@@ -8,7 +8,7 @@ const install = function(vue) {
   vue.component(this.name, this);
 };
 
-hComponent.forEach(item => {
+hComponent.forEach((item) => {
   item.install = install;
 
   Vue.use(item);

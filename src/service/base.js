@@ -11,21 +11,21 @@ http.defaults.timeout = 30 * 1000;
 http.defaults.headers.post["Content-Type"] = "application/json";
 
 http.interceptors.request.use(
-  config => {
+  (config) => {
     if (config.method === "post") {
       // config.data = qs.stringify(config.data);
     }
     return config;
   },
-  error => {
+  (error) => {
     console.log(error);
     return Promise.reject(error);
   }
 );
 
 http.interceptors.response.use(
-  res => res,
-  error => {
+  (res) => res,
+  (error) => {
     console.log(error);
     return Promise.reject(error);
   }
