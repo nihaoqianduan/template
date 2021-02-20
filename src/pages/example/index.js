@@ -7,6 +7,7 @@ import http from "@/service/http";
 import "@/filters";
 
 import "@/components/base";
+import "@/config/vantComponents";
 
 Vue.config.productionTip = false;
 

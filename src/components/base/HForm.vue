@@ -20,10 +20,10 @@ export default {
   },
   methods: {
     async validate(callback) {
-      // if (!this.model || isEmpty(this.model)) {
-      //   console.warn('model不能传递空');
-      //   return;
-      // }
+      if (!this.model || isEmpty(this.model)) {
+        console.warn("model不能传递空");
+        return;
+      }
       // if (!this.rules || isEmpty(this.rules)) {
       //   console.warn('rules不能传递空');
       //   return;

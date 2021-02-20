@@ -1,33 +1,33 @@
 <template>
   <h-form :model="model" :rules="rules" ref="myForm">
-    <oreo-cell-group>
-      <oreo-input
+    <van-cell-group>
+      <van-field
         label="用户名"
         placeholder="真实姓名"
         v-model="model.name"
-      ></oreo-input>
-      <oreo-input
+      ></van-field>
+      <van-field
         label="年龄"
         placeholder="真实年龄"
         v-model="model.age"
-      ></oreo-input>
-      <oreo-input
+      ></van-field>
+      <van-field
         label="性别"
         placeholder="真实性别"
         v-model="model.sex"
-      ></oreo-input>
-      <oreo-input
+      ></van-field>
+      <van-field
         label="手机号"
         placeholder="真实手机号"
         v-model="model.mobile"
-      ></oreo-input>
-      <oreo-input
+      ></van-field>
+      <van-field
         label="邮箱"
         placeholder="真实邮箱"
         v-model="model.email"
-      ></oreo-input>
-      <oreo-button @click="handleOnSubmit">提交</oreo-button>
-    </oreo-cell-group>
+      ></van-field>
+      <van-button @click="handleOnSubmit" block type="info">提交</van-button>
+    </van-cell-group>
   </h-form>
 </template>
 <script>
@@ -63,6 +63,7 @@ export default {
   methods: {
     handleOnSubmit() {
       this.$refs.myForm.validate();
+      // console.log(this.$refs.myForm);
     }
   }
 };
