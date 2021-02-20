@@ -39,13 +39,23 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        // loader: 'babel-loader',
-        use: ["babel-loader", "eslint-loader"],
+        loader: "babel-loader",
+        // use: ["babel-loader", "eslint-loader"],
         include: [
           resolve("src"),
           resolve("test"),
           resolve("node_modules/webpack-dev-server/client")
         ]
+      },
+      {
+        test: /\.(js|vue)$/,
+        loader: "eslint-loader",
+        enforce: "pre",
+        include: [resolve("src"), resolve("test")],
+        options: {
+          formatter: require("eslint-friendly-formatter"),
+          emitWarning: !config.dev.showEslintErrorsInOverlay
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

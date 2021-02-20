@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "lint": "eslint --ext .js,.vue src"
   },
   "husky": {
     "hooks": {
@@ -48,6 +49,7 @@
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
     "eslint": "^6.8.0",
+    "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^4.0.0",
     "eslint-plugin-html": "^6.0.2",
     "eslint-plugin-vue": "^6.2.2",
