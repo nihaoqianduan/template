@@ -9,6 +9,16 @@
     "start": "npm run dev",
     "build": "node build/build.js"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint --fix"
+    ]
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "dayjs": "^1.10.3",
@@ -45,6 +55,8 @@
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
+    "husky": "^5.0.9",
+    "lint-staged": "^10.5.4",
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",

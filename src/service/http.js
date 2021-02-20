@@ -1,37 +1,15 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-console */
-/* eslint-disable no-unused-vars */
 import http from "./base";
 import Vue from "vue";
-import { search } from "@/utils";
 
 const app = new Vue();
 
-const api = {
-  busIndex: "/api/teacher/busIndex", // 首页数据
-  schedulerList: "/api/teacher/schedulerList", // 获取班次信息详情
-  getStudentInfo: "/api/teacher/getStudentInfo", // 查询学生信息
-  getStationList: "/api/teacher/getStationList", // 站点列表
-  saveRecord: "/api/teacher/saveRecord", // 补录
-  historyList: "/api/teacher/historyList", // 历史记录
-  historyInfo: "/api/teacher/historyInfo", // 记录详情
-  indexOffRecord: "/api/teacher/indexOffRecord", // 首页下车记录
-  indexOnRecord: "/api/teacher/indexOnRecord" // 首页上车记录
-};
+const api = {};
 
 const methods = {};
 
 Object.keys(api).forEach((key, index) => {
   methods[key] = param =>
-    response(
-      (p => {
-        const data = {
-          token: search("token"),
-          ...p
-        };
-        return http.post(api[key], data);
-      })(param)
-    )
+    response((p => http.post(api[key], p))(param))
       .then(res => [null, res])
       .catch(err => [err, null]);
 });
