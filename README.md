@@ -17,9 +17,16 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
+
 # template
+
 内置 vue-cli、vue-router、axios、less、less-loader、vant、dayjs，实际开发不够用，自行添加。
 
+## Tips
+
+- 通过 git 拉取项目，默认 origin 远程库名会被占用，请创建自己的 git 远程库，并添加别名进行绑定
+- master 分支为主分支，获取项目后在 master 基础上打开发分支，进行自己的项目开发
+- 使用中有任何问题，记录反馈 hzb，会进行积极更新
 
 ## 目录结构
 
@@ -51,11 +58,19 @@ npm run build --report
   - utils // 通用工具方法
 - static // 项目依赖外部资源
 
+## 迭代记录
+### 优化 (2021-03-01 hzb)
+- 删除 static/config 文件夹
+- 增加 src/config
+- 增加 i18n
+- 增加 vant 引用配置
+- 修改 ajax 环境切换配置方式
+- 修改 eslint 代码校验规则
+### 增加 eslint
+
 ### 增加 static/config 文件夹
 
 webpack 配置已配制好，打包后自动引入对应 js 文件
 
 - development.js 开发环境配置文件
 - production.js 生产环境配置文件
-
-### 增加 eslint
