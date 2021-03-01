@@ -140,10 +140,7 @@ exports.htmlPlugin = function() {
       template: filePath,
       filename: filename + ".html",
       chunks: ["manifest", "vendor", filename],
-      inject: true,
-      customConfig: debug
-        ? '<script src="./static/config/production.js"></script>'
-        : '<script src="./static/config/development.js"></script>'
+      inject: true
     };
     if (debug) {
       confg = merge(confg, {

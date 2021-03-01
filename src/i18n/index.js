@@ -10,8 +10,6 @@ Vue.use(VueI18n);
 
 const language = search("language") || "zh";
 
-// let language = "zh";
-
 const i18n = new VueI18n({
   locale: language,
   messages: {

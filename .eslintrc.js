@@ -34,7 +34,7 @@ module.exports = {
     // this的别名规则，只允许self和that，防止写成_this或者me等等
     "consistent-this": 2,
     // 禁止使用 console，提醒开发者，上线时要去掉，因为是warning不会导致编译的js出问题
-    "no-console": 1,
+    "no-console": 0,
     // if 后必须包含 { ，单行 if 除外
     curly: [2, "multi-line", "consistent"],
     // switch 语句必须包含 default

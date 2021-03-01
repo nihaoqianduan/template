@@ -18,26 +18,19 @@ export function isObject(value) {
 /**
  * 获取url参数
  */
-function getSearch() {
-  let query = window.location.search.substring(1);
-  let attr = {};
-  let match = {};
-  let pl = /\+/g;
-  let searchReg = /([^&=]+)=?([^&]*)/g;
-
-  let decode = function(s) {
-    return decodeURIComponent(s.replace(pl, " "));
-  };
-  while ((match = searchReg.exec(query)) !== null) {
-    attr[decode(match[1])] = decode(match[2]);
-  }
-  return attr;
-}
 export function search(key) {
-  const attr = getSearch();
-  if (!key) {
-    return window.location.search.substring(1);
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (let i = 0; i < vars.length; i++) {
+    const pair = vars[i].split("=");
+    if (pair[0] === key) {
+      return pair[1];
+    }
   }
-
-  return attr[key];
+  return false;
 }
+
+// 判断开发、生产环境
+export const debug = process.env.NODE_ENV === "development";
+
+export const environ = process.env.NODE_ENV;
