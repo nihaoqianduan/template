@@ -41,7 +41,6 @@ npm run build --report
     - ImagePreview // 内置图片预览器组件
     - ... // 如有新增，同级新增即可
   - config // 项目配置文件
-    - ajaxConfig // ajax 配置
     - vantComponents // vant 组件全局引入配置
   - filters // vue 过滤器
   - i18n // 国际化配置
@@ -57,8 +56,13 @@ npm run build --report
   - service // ajax 配置
   - utils // 通用工具方法
 - static // 项目依赖外部资源
-
+  - config // 配置文件
+    - development.js // 开发环境配置文件
+    - production.js // 生产环境配置文件
 ## 迭代记录
+### 优化 (2021-04-29 hzb)
+- 删除 src/config/ajaxConfig.js 
+- 增加 static/config 文件夹
 ### 优化 (2021-03-01 hzb)
 - 删除 static/config 文件夹
 - 增加 src/config

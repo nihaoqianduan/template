@@ -2,9 +2,8 @@
 /* eslint-disable no-unused-vars */
 import http from "axios";
 import qs from "qs";
-import axaxConfig from "../config/ajaxConfig";
 
-http.defaults.baseURL = axaxConfig._urlPrefixes;
+http.defaults.baseURL = window._urlPrefixes;
 
 http.defaults.timeout = 30 * 1000;
 // http.defaults.headers.post["Content-Type"] =
