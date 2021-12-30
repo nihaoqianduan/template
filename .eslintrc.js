@@ -94,7 +94,7 @@ module.exports = {
     // class 的非静态方法必须包含 this 关键字
     "class-methods-use-this": 2,
     // 对象的最后一项后面是否写逗号
-    "comma-dangle": 2,
+    "comma-dangle": 0,
     // 逗号前后是否有空格
     "comma-spacing": 2,
     // 逗号写在行首还是行尾

@@ -1,6 +1,6 @@
-# template
+# ncp-vue-template
 
-> A Vue.js project
+> 基于vue2.0搭建前端模板框架，实现可快速进行项目开发，无须重复安装基础插件库
 
 ## Build Setup
 

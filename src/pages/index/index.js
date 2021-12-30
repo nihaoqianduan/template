@@ -8,6 +8,8 @@ import "@/filters";
 import "@/components/base";
 import i18n from "@/i18n/index";
 
+import "@/config/vantComponents";
+
 Vue.config.productionTip = false;
 
 Vue.prototype.$http = http;
