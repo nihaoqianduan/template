@@ -1,6 +1,6 @@
 # ncp-vue-template
 
-> 基于vue2.0搭建前端模板框架，实现可快速进行项目开发，无须重复安装基础插件库
+> 基于 vue2.0 搭建前端模板框架，实现可快速进行项目开发，无须重复安装基础插件库
 
 ## Build Setup
 
@@ -59,17 +59,33 @@ npm run build --report
   - config // 配置文件
     - development.js // 开发环境配置文件
     - production.js // 生产环境配置文件
+
 ## 迭代记录
+
+### 增加基于 van-popup 定制 popup 弹窗框 (2021-12-30 hzb)
+
+- 增加方法 this.\$NcpPopup(template, options)
+- template 弹窗内嵌组件
+- options 配置信息
+  - position: "center", // 弹出位置，默认值 center，支持 top/left/right/bottom
+  - on: {}, // 事件监听器
+  - childProps: {} // template 组件 props
+- 具体使用看 home.vue 使用示例
+
 ### 优化 (2021-04-29 hzb)
-- 删除 src/config/ajaxConfig.js 
+
+- 删除 src/config/ajaxConfig.js
 - 增加 static/config 文件夹
+
 ### 优化 (2021-03-01 hzb)
+
 - 删除 static/config 文件夹
 - 增加 src/config
 - 增加 i18n
 - 增加 vant 引用配置
 - 修改 ajax 环境切换配置方式
 - 修改 eslint 代码校验规则
+
 ### 增加 eslint
 
 ### 增加 static/config 文件夹
