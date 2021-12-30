@@ -1,3 +1,4 @@
 (function() {
-  window._urlPrefixes = "/";
-})();
+    window._urlPrefixes = "";
+  })();
+  

@@ -16,69 +16,21 @@ export function isObject(value) {
 }
 
 /**
- * param 将要转为URL参数字符串的对象
- * key URL参数字符串的前缀
- * encode true/false 是否进行URL编码,默认为true
- *
- * return URL参数字符串
- */
-var urlEncode = function(param, key, encode) {
-  if (param === null) {
-    return "";
-  }
-  var paramStr = "";
-  var t = typeof param;
-  let k = "";
-  if (t === "string" || t === "number" || t === "boolean") {
-    paramStr +=
-      "&" +
-      key +
-      "=" +
-      (encode === null || encode ? encodeURIComponent(param) : param);
-  } else {
-    for (let i in param) {
-      if (param.hasOwnProperty(i)) {
-        k =
-          key === null
-            ? i
-            : key + (param instanceof Array ? "[" + i + "]" : "." + i);
-        paramStr += urlEncode(param[i], k, encode);
-      }
-    }
-  }
-  return paramStr;
-};
-
-export let urlParamEncode = function(param) {
-  var t = typeof param;
-  if (t === "string" || t === "number" || t === "boolean") return param;
-  let res = urlEncode(param).slice(1);
-  return `?${res}`;
-};
-
-/**
  * 获取url参数
  */
-function getSearch() {
-  let query = window.location.search.substring(1);
-  let attr = {};
-  let match = {};
-  let pl = /\+/g;
-  let searchReg = /([^&=]+)=?([^&]*)/g;
-
-  let decode = function(s) {
-    return decodeURIComponent(s.replace(pl, " "));
-  };
-  while ((match = searchReg.exec(query)) !== null) {
-    attr[decode(match[1])] = decode(match[2]);
-  }
-  return attr;
-}
 export function search(key) {
-  const attr = getSearch();
-  if (!key) {
-    return window.location.search.substring(1);
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (let i = 0; i < vars.length; i++) {
+    const pair = vars[i].split("=");
+    if (pair[0] === key) {
+      return pair[1];
+    }
   }
-
-  return attr[key];
+  return false;
 }
+
+// 判断开发、生产环境
+export const debug = process.env.NODE_ENV === "development";
+
+export const environ = process.env.NODE_ENV;

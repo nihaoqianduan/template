@@ -2,14 +2,13 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <!-- <oreo-button>Button</oreo-button> -->
-    <router-view/>
+    <router-view />
   </div>
 </template>
-
 <script>
 export default {
-  name: 'App'
-}
+  name: "App"
+};
 </script>
 
 <style>

@@ -5,8 +5,8 @@
 </template>
 <script>
 export default {
-  name: 'h-container'
-}
+  name: "h-container"
+};
 </script>
 <style lang="less" scoped>
 @import url("../../assets/less/index.less");

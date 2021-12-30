@@ -34,7 +34,7 @@ module.exports = {
     // this的别名规则，只允许self和that，防止写成_this或者me等等
     "consistent-this": 2,
     // 禁止使用 console，提醒开发者，上线时要去掉，因为是warning不会导致编译的js出问题
-    "no-console": 1,
+    "no-console": 0,
     // if 后必须包含 { ，单行 if 除外
     curly: [2, "multi-line", "consistent"],
     // switch 语句必须包含 default
@@ -80,7 +80,7 @@ module.exports = {
     // 要求箭头函数体使用大括号
     "arrow-body-style": 2,
     // 要求箭头函数的参数使用圆括号
-    "arrow-parens": 0,
+    "arrow-parens": 1,
     // 强制箭头函数的箭头前后使用一致的空格
     "arrow-spacing": 2,
     // 要求在构造函数中有 super() 的调用
@@ -94,17 +94,17 @@ module.exports = {
     // class 的非静态方法必须包含 this 关键字
     "class-methods-use-this": 2,
     // 对象的最后一项后面是否写逗号
-    "comma-dangle": 2,
+    "comma-dangle": 0,
     // 逗号前后是否有空格
-    "comma-spacing": 1,
+    "comma-spacing": 2,
     // 逗号写在行首还是行尾
-    "comma-style": 0,
+    "comma-style": 2,
     // 禁止函数 if ... else if ... else 的复杂度超过 20
     complexity: 2,
     // this 的别名规则，只允许 self 或 that
     "consistent-this": [2, "self", "that"],
     // 文件最后必须有空行
-    "eol-last": 0,
+    "eol-last": 2,
     // for 循环不得因方向错误造成死循环
     "for-direction": 2,
     // getter 必须有返回值，允许返回 undefined
@@ -122,7 +122,7 @@ module.exports = {
     // new 关键字后类应包含圆括号
     "new-parens": 2,
     // 禁止 alert，提醒开发者，上线时要去掉
-    "no-alert": 1,
+    "no-alert": 2,
     // 禁止在 Node.js 中直接调用 Buffer 构造函数
     "no-buffer-constructor": 2,
     // switch的条件中出现 var、let、const、function、class 等关键字，必须使用花括号把内容括起来
@@ -160,7 +160,7 @@ module.exports = {
     // 禁止出现空代码块
     "no-empty": [2, { allowEmptyCatch: true }],
     // 禁止 == 和 != 与 null 做比较，必须用 === 或 !==
-    "no-eq-null": 0,
+    "no-eq-null": 2,
     // 禁止扩展原生对象
     "no-extend-native": [2, { exceptions: ["Array", "Object"] }],
     // 禁止额外的 bind
