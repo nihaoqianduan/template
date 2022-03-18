@@ -1,5 +1,5 @@
-import http from "./base";
-import Vue from "vue";
+import http from './base';
+import Vue from 'vue';
 
 const app = new Vue();
 
@@ -15,18 +15,11 @@ Object.keys(api).forEach((key, index) => {
 });
 
 function response(promise) {
-  return new Promise((resovle, reject) => {
+  return new Promise((resolve, reject) => {
     promise
       .then((res) => {
         if (res.status === 200 && res.data.code === 200) {
-          resovle(res.data);
-        } else if (res.data.returncode === "ERROR") {
-          console.warn(res.data);
-          app.$toast("服务器出错，请稍候重试！");
-        } else if (res.data.returncode === "BSNERROR") {
-          app.$toast(res.data.returnmsg);
-        } else if (res.data.code === "ERROR") {
-          app.$toast(res.data.msg);
+          resolve(res.data);
         } else {
           console.warn(res.data);
           app.$toast(res.data.returnmsg);

@@ -9,14 +9,14 @@
   </h-container>
 </template>
 <script>
-import TestPopup from "../components/testPopup.vue";
+import TestPopup from '../components/testPopup.vue';
 export default {
-  name: "Home",
+  name: 'Home',
   methods: {
     handleOnClick(position) {
       this.$NcpPopup(TestPopup, {
         childProps: {
-          title: "演示title",
+          title: '演示title',
         },
         position, // 默认值  center
         on: {
